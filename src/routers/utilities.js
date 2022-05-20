@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middlewares/auth');
 
 
 const Utilities = require('../models/utilities');
@@ -49,7 +50,7 @@ router.get('/utilities/:id', async (req, res) => {
 
 //POST Utilities
 
-router.post('/utilities', async (req, res) => {
+router.post('/utilities', auth, async (req, res) => {
     const utilities = new Utilities(req.body)
     try {
         await utilities.save()
@@ -61,7 +62,7 @@ router.post('/utilities', async (req, res) => {
 
 
 // UPDATE API
-router.put('/utilities/:id', async (req, res) => {
+router.put('/utilities/:id', auth, async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;

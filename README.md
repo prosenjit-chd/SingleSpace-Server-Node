@@ -1,10 +1,10 @@
-# Project Name: Doublespace
- (Architectural and Design Office)
+# Project Name: SingleSpace
+ (Software Development Office)
 
-# Live Site Link
+# Server Link
 (https://doublespacearchitect.com/)
 
 ## About Project
 
-- This Project made for those people who searching an architect.
+- This Project made for those people who want to build software.
 - Here, user can see different types of previous project

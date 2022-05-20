@@ -1,6 +1,6 @@
 const express = require('express')
 const router = new express.Router()
-
+const auth = require('../middlewares/auth');
 const Review = require('../models/review')
 
 //Get all Review
@@ -44,7 +44,7 @@ router.get('/reviews/:id', async (req, res) => {
 
 // Post Review
 
-router.post('/reviews', async (req, res) => {
+router.post('/reviews', auth, async (req, res) => {
     const review = new Review(req.body)
 
     try {
@@ -56,7 +56,7 @@ router.post('/reviews', async (req, res) => {
 })
 
 // DELETE Review
-router.delete('/reviews/:id', async (req, res) => {
+router.delete('/reviews/:id', auth, async (req, res) => {
     try {
         const review = await Review.findOneAndDelete({ _id: req.params.id })
         if (!review) {
@@ -70,7 +70,7 @@ router.delete('/reviews/:id', async (req, res) => {
 })
 
 // UPDATE API
-router.put('/reviews/:id', async (req, res) => {
+router.put('/reviews/:id', auth, async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
