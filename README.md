@@ -2,7 +2,7 @@
  (Software Development Office)
 
 # Server Link
-(https://doublespacearchitect.com/)
+(https://singlespace.herokuapp.com/)
 
 ## About Project
 
